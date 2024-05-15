@@ -59,7 +59,7 @@ export default function SelectField({
         >
 
             {label && (
-                <label className={` transition-all text-sm font-medium mb-[7px] block`}>
+                <label className={` transition-all text-sm font-medium mb-[7px] block text-gray-900`}>
                     {label}
                 </label>)}
 
@@ -73,6 +73,7 @@ export default function SelectField({
                 shadow-sm
                 border-[1px]
                 border-gray-200
+                text-gray-900
             "
                 onClick={e => setActive(!active)}>{
                     selected ? selected :
@@ -99,7 +100,7 @@ export default function SelectField({
                                     return (
                                         <ButtonField
                                             key={i}
-                                            className="shadow-none hover:bg-gray-100"
+                                            className="shadow-none hover:bg-gray-100 text-gray-900"
                                             label={item.label}
                                             leftIcon={<CopyIcon />}
                                             onClick={() => {

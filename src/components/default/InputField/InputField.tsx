@@ -44,7 +44,7 @@ export default function InputField({
 
                 {label && (
                     <label className={` 
-                    transition-all text-sm font-medium mb-[7px] block
+                    transition-all text-sm font-medium mb-[7px] block text-gray-900
                     ${isFocus ? 'text-emerald-500' : ''}`}>
                         {label}
                     </label>)}
@@ -78,7 +78,7 @@ export default function InputField({
                                 onKeyDown(e);
                             }
                         }}
-                        className="w-full bg-transparent focus-visible:outline-none"
+                        className="w-full bg-transparent focus-visible:outline-none text-gray-900"
                     />
 
                     {rightIcon && (rightIcon)}

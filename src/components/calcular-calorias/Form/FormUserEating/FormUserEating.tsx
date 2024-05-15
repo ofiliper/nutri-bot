@@ -44,7 +44,7 @@ export default function FormUserEating() {
 
     return (
         <div>
-            <h1 className="text-5xl mb-10 font-bold">
+            <h1 className="text-5xl mb-10 font-bold text-gray-900">
                 Escreva seu consumo de hoje
             </h1>
             <div>

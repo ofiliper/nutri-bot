@@ -28,7 +28,7 @@ export default function BannerText() {
                 Qual é o seu objetivo?
             </h1>
 
-            <p className="w-[420px] mx-auto text-sm">
+            <p className="w-[420px] mx-auto text-sm text-gray-900">
                 Clique abaixo e faça o cálculo estimado de calorias que você consumiu hoje. <br />
                 Atenção: Este serviço não substitui a necessidade de um acompanhamento nutricional.</p>
 
@@ -43,7 +43,9 @@ export default function BannerText() {
 
                         return (
                             <a href={item.permalink} key={i}>
-                                <button className={`${isActive} relative bg-white px-7 py-4 rounded-3xl flex justify-between items-center gap-5`} >
+                                <button className={`${isActive} 
+                                relative text-gray-900
+                                bg-white px-7 py-4 rounded-3xl flex justify-between items-center gap-5`} >
                                     {
                                         !item.active && (
                                             <span className="absolute top-[-5px] rounded-md text-xs bg-red-400 text-white px-2 py-1">Em breve</span>
