@@ -24,7 +24,7 @@ export default function FormUserData() {
                     <InputField
                         value={name}
                         label="Seu nome"
-                        className="w-[50%]"
+                        className="w-[70%] sm:w-[50%]"
                         leftIcon={<CopyIcon />}
                         placeholder="Escreva seu nome..."
                         onChange={e => user.fnOnChange("name", e.target.value)}
@@ -62,7 +62,7 @@ export default function FormUserData() {
 
                 </div>
 
-                <div className="flex justify-between items-end gap-5 mb-[20px]">
+                <div className="flex flex-col sm:flex-row justify-between items-end gap-5 mb-[20px]">
 
                     <SelectField
                         label={"Alguma condição de saúde?"}

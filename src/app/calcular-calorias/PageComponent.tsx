@@ -27,21 +27,28 @@ export default function PageComponent() {
         <PageContainer>
 
             <div className="h-screen w-full overflow sm:overflow-hidden">
+
+                <div
+                    className="w-10/12 mx-auto mt-[95px] mb-[-40px]">
+                    <div className="w-full sm:w-5/12">
+                        <StepperField
+                            active={stepper}
+                            options={options} />
+                    </div>
+                </div>
+
                 <div
                     className="
                     z-20
                     flex w-10/12 
                     mx-auto 
-                    mt-[80px]
                     justify-between">
+
 
                     <div className="flex-1 w-6/12">
 
                         <div className="w-full sm:w-9/12 flex flex-col pt-10 justify-start h-screen">
 
-                            <StepperField
-                                active={stepper}
-                                options={options} />
 
                             {stepper === 0 && (<FormUserData />)}
                             {stepper === 1 && (<FormUserEating />)}

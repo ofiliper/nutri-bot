@@ -43,7 +43,7 @@ export default function StepperField({
                                 <span
                                     className={`
                                     grow inline 
-                                    text-[9.5px] text-sm
+                                    text-[9.5px] sm:text-sm
                                     font-bold
                                     ${i <= active ? 'text-emerald-800' : 'text-gray-300'}
                                     `}>
