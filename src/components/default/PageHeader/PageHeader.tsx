@@ -41,7 +41,7 @@ export default function PageHeader() {
                 ${showMenu ? 'opacity-1 visible' : 'opacity-0 invisible'}`}>
                         {
                             menuOptions &&
-                            menuOptions.map((item, i) => <li key={i} className="font-bold text-sm"><a href={item.permalink}>{item.label}</a></li>)
+                            menuOptions.map((item, i) => <li key={i} className="font-bold text-sm text-gray-900"><a href={item.permalink}>{item.label}</a></li>)
                         }
                     </ul>
 

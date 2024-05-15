@@ -159,7 +159,7 @@ export default function BoardField() {
                             animationFillMode: "forwards",
                         }}
                         className="bg-white absolute 
-                        w-11/12 mx-auto text-sm
+                        w-11/12 mx-auto text-sm text-gray-800
                         h-screen px-10 py-20 shadow-xl rotate-[1deg]">
 
                         <p>
