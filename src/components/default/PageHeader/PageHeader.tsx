@@ -89,7 +89,7 @@ export default function PageHeader() {
                                         key={i}
                                         className="font-bold 
                                         text-[32px] sm:text-sm
-                                        text-sm text-gray-900
+                                        text-white sm:text-gray-900
                                     ">
                                         <a href={item.permalink} rel="follow">{item.label}</a></li>)
                             }

@@ -62,7 +62,7 @@ export default function FormUserData() {
 
                 </div>
 
-                <div className="flex justify-between gap-5 mb-[20px]">
+                <div className="flex justify-between items-end gap-5 mb-[20px]">
 
                     <SelectField
                         label={"Alguma condição de saúde?"}
@@ -90,5 +90,5 @@ export default function FormUserData() {
             </div>
         </div>
     );
-    
+
 }

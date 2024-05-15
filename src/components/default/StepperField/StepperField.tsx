@@ -42,7 +42,9 @@ export default function StepperField({
                                 </span>
                                 <span
                                     className={`
-                                    grow inline text-sm font-bold
+                                    grow inline 
+                                    text-[9.5px] text-sm
+                                    font-bold
                                     ${i <= active ? 'text-emerald-800' : 'text-gray-300'}
                                     `}>
                                     {item.label}
