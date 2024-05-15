@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function PageHeader() {
 
-    const [showMenu, setShowMenu] = useState<boolean>(true);
+    const [showMenu, setShowMenu] = useState<boolean>(false);
 
     const menuOptions = [
         {
@@ -27,39 +27,71 @@ export default function PageHeader() {
     return (
         <>
             <div className="
-            bg-gradient-to-r from-red-500 to-red-900
+            py-[7px]
+            px-[40px] sm:px-auto 
             text-center 
-            text-[12px] 
-            py-[7px]">
+            text-[10px] sm:text-[12px]
+            bg-gradient-to-r from-red-500 to-red-900
+            ">
                 Este serviço não substitui a necessidade de um atendimento com um profissional em nutrição
             </div>
             <div className="z-50 w-full absolute">
 
-                <div className="relative z-50 w-9/12 mx-auto flex justify-between items-center py-5 px-20 rounded-full">
+                <div className={`
+                     relative 
+                     z-50 
+                     mx-auto 
+                     flex 
+                     justify-between 
+                     items-center 
+                     py-5
+                     px-5 sm:px-20
+                     w-11/12 sm:w-9/12 
+                     rounded-full
+                `}>
 
-                    <a href="/">
-                        <Image
-                            src="/digital-nutri.svg"
-                            width={140}
-                            height={0}
-                            alt="Digital Nutri" />
-                    </a>
+                    <div>
+                        <a href="/">
+                            <Image
+                                src="/digital-nutri.svg"
+                                width={140}
+                                height={0}
+                                alt="Digital Nutri"
+                                className="w-[120px] sm:w-[150px]"
+                            />
+                        </a>
+                    </div>
 
                     <div className="flex">
 
                         <ul className={`
-                            flex gap-5 
                             mr-5 
-                            transition-all 
+                            flex 
+                            flex-col sm:flex-row
+                            items-center
+                            justify-center sm:justify-start
+                            gap-10 sm:gap-5 
                             ease-linear
+                            transition-all 
+                            bg-red-900 sm:bg-transparent
+                            fixed sm:relative
+                            top-0
+                            left-0
+                            w-[100%] sm:w-auto
+                            h-screen sm:h-auto
                             ${showMenu ?
                                 'opacity-1 visible' :
                                 'opacity-0 invisible'}`}>
                             {
                                 menuOptions &&
                                 menuOptions.map((item, i) =>
-                                    <li key={i} className="font-bold text-sm text-gray-900">
-                                        <a href={item.permalink}>{item.label}</a></li>)
+                                    <li
+                                        key={i}
+                                        className="font-bold 
+                                        text-[32px] sm:text-sm
+                                        text-sm text-gray-900
+                                    ">
+                                        <a href={item.permalink} rel="follow">{item.label}</a></li>)
                             }
                         </ul>
 

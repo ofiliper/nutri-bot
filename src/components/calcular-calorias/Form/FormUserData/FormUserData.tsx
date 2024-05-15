@@ -87,21 +87,8 @@ export default function FormUserData() {
 
                 </div>
 
-                {/* <button onClick={() => {
-                    fetch(`http://localhost:4001/calculate`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(user.data)
-                    }).then(res => {
-                        console.log(res);
-                    })
-                }}>
-                    Obj
-                </button> */}
-
             </div>
         </div>
-    )
+    );
+    
 }

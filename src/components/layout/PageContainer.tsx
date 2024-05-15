@@ -2,11 +2,12 @@ import PageHeader from "../default/PageHeader/PageHeader";
 
 interface IPageContainer {
     children: React.ReactElement;
+    className?: string;
 }
 
-export default function PageContainer({ children }: IPageContainer) {
+export default function PageContainer({ children, className }: IPageContainer) {
     return (
-        <div>
+        <div className={className}>
             <PageHeader />
             {children && (children)}
         </div>

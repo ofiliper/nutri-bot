@@ -14,7 +14,7 @@ export default function TrashIcon({
             fill="none"
             width="1em"
             height="1em"
-            stroke-width="2"
+            strokeWidth="2"
             viewBox="0 0 24 24"
             stroke="currentColor"
             stroke-linecap="round"

@@ -20,19 +20,34 @@ export default function BannerText() {
     return (
         <div className="w-[600px] text-center z-40 relative">
 
-            <h1 className="text-[86px] relative
-            leading-tight mb-5
+            <h1 className="
+            text-[58px] sm:text-[86px] 
+            relative
+            leading-tight 
+            mb-5
             font-sans font-extrabold 
             bg-gradient-to-br from-red-950 via-indigo-800  
-            text-transparent bg-clip-text">
+            text-transparent 
+            bg-clip-text">
                 Qual é o seu objetivo?
             </h1>
 
-            <p className="w-[420px] mx-auto text-sm text-gray-900">
+            <p className="
+            w-[90%] sm:w-[420px]
+            mx-auto 
+            mb-[30px]
+            text-sm 
+            text-gray-900">
                 Clique abaixo e faça o cálculo estimado de calorias que você consumiu hoje. <br />
                 Atenção: Este serviço não substitui a necessidade de um acompanhamento nutricional.</p>
 
-            <div className="mt-[60px] flex justify-around">
+            <div className="
+            flex
+            flex-col sm:flex-row
+            items-center
+            justify-around
+            gap-[20px]
+            ">
                 {
                     options &&
                     options.map((item, i) => {

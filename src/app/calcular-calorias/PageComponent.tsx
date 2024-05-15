@@ -26,63 +26,66 @@ export default function PageComponent() {
     return (
         <PageContainer>
 
-            <div
-                className="
-                z-50 
-                h-screen 
-                flex w-10/12 
-                mx-auto 
-                mt-[80px]
-                justify-between">
+            <div className="h-screen w-full overflow sm:overflow-hidden">
+                <div
+                    className="
+                    z-20
+                    flex w-10/12 
+                    mx-auto 
+                    mt-[80px]
+                    justify-between">
 
-                <div className="flex-1 w-6/12">
+                    <div className="flex-1 w-6/12">
 
-                    <div className="w-9/12 flex flex-col pt-10 justify-start h-screen">
+                        <div className="w-full sm:w-9/12 flex flex-col pt-10 justify-start h-screen">
 
-                        <StepperField
-                            active={stepper}
-                            options={options} />
+                            <StepperField
+                                active={stepper}
+                                options={options} />
 
-                        {stepper === 0 && (<FormUserData />)}
-                        {stepper === 1 && (<FormUserEating />)}
-                        {stepper === 2 && (<FormUserData />)}
+                            {stepper === 0 && (<FormUserData />)}
+                            {stepper === 1 && (<FormUserEating />)}
+                            {stepper === 2 && (<FormUserData />)}
 
-                        <div className="flex justify-end gap-5">
+                            <div className="flex justify-end gap-5">
 
-                            {
-                                stepper > 0 && (
-                                    <div className="w-[50%]">
-                                        <ButtonField
-                                            className="bg-emerald-300"
-                                            label={"Retornar..."}
-                                            onClick={() => {
-                                                navigation.fnOnChange("stepper", stepper - 1);
-                                            }}
-                                            leftIcon={<CopyIcon />}
-                                        />
-                                    </div>
-                                )
-                            }
+                                {
+                                    stepper > 0 && (
+                                        <div className="w-[50%]">
+                                            <ButtonField
+                                                className="bg-emerald-300"
+                                                label={"Retornar..."}
+                                                onClick={() => {
+                                                    navigation.fnOnChange("stepper", stepper - 1);
+                                                }}
+                                                leftIcon={<CopyIcon />}
+                                            />
+                                        </div>
+                                    )
+                                }
 
-                            <div className="w-[50%]">
-                                <ButtonField
-                                    className="bg-emerald-300"
-                                    label={"Prosseguir..."}
-                                    rightIcon={<ArrowRightIcon color="#fff" />}
-                                    onClick={() => {
-                                        navigation.fnOnChange("stepper", stepper + 1);
-                                    }}
-                                />
+                                <div className="w-[50%]">
+                                    <ButtonField
+                                        className="bg-emerald-300"
+                                        label={"Prosseguir..."}
+                                        rightIcon={<ArrowRightIcon color="#fff" />}
+                                        onClick={() => {
+                                            navigation.fnOnChange("stepper", stepper + 1);
+                                        }}
+                                    />
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
+                    <div className="hidden sm:block">
+                        <BoardField />
+                    </div>
+
                 </div>
-
-                <BoardField />
-
             </div>
 
         </PageContainer>
