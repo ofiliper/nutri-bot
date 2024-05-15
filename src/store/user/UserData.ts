@@ -7,7 +7,6 @@ export default function UserData() {
     const createAnswer = (data: UserDTO): Promise<any> => {
         return new Promise<any>((resolve, reject) => {
 
-
             const service = new UserService();
 
             service
@@ -26,5 +25,5 @@ export default function UserData() {
     return {
         createAnswer,
     };
-    
+
 }
