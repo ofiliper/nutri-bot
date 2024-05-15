@@ -1,6 +1,7 @@
-import PageHeader from "@/components/default/PageHeader/PageHeader";
 import Banner from "@/components/home/Banner/Banner";
 import { Metadata } from "next";
+import "@/assets/css/globals.css"
+import PageContainer from "@/components/layout/PageContainer";
 
 export const metadata: Metadata = {
     title: "Calcular calorias | Digital Nutri",
@@ -9,28 +10,9 @@ export const metadata: Metadata = {
 
 export default function PageComponent() {
     return (
-        <div
-            style={{ overflow: "hidden" }}
-        // style={{
-
-        //   '&::-webkit-scrollbar': {
-        //     width: '2px',
-        //   },
-        //   '&::-webkit-scrollbar-track': {
-        //     background: '#f1f1f1',
-        //   },
-        //   '&::-webkit-scrollbar-thumb': {
-        //     background: '#888',
-        //     borderRadius: '2px',
-        //   },
-        //   '&::-webkit-scrollbar-thumb:hover': {
-        //     background: '#555',
-        //   },
-        // }}
-        >
-            <PageHeader />
+        <PageContainer>
             <Banner />
-        </div>
+        </PageContainer>
 
     );
 }

@@ -17,11 +17,11 @@ export default function Banner() {
             style={{ overflow: "hidden" }}
             className="
             h-screen
-            flex w-full justify-center items-center mt-[-70px] relative
             bg-slate-50            
             before:content-['*']
-            before:bg-gradient-to-r from-purple-300 via-amber-100 
+            flex w-full justify-center items-center relative
             before:h-[600px] before:w-[700px] before:absolute
+            before:bg-gradient-to-r from-purple-300 via-amber-100 
             before:rounded-full before:blur-[90px] before:right-[200px]
         "
             onMouseMove={handleMouseMove}>

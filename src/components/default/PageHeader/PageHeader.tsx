@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function PageHeader() {
 
-    const [showMenu, setShowMenu] = useState<boolean>(false);
+    const [showMenu, setShowMenu] = useState<boolean>(true);
 
     const menuOptions = [
         {
@@ -25,48 +25,67 @@ export default function PageHeader() {
     };
 
     return (
-        <div className="z-50 w-full">
+        <>
+            <div className="
+            bg-gradient-to-r from-red-500 to-red-900
+            text-center 
+            text-[12px] 
+            py-[7px]">
+                Este serviço não substitui a necessidade de um atendimento com um profissional em nutrição
+            </div>
+            <div className="z-50 w-full absolute">
 
-            <div className="relative z-50 w-9/12 mx-auto flex justify-between items-center py-5 px-20 rounded-full">
+                <div className="relative z-50 w-9/12 mx-auto flex justify-between items-center py-5 px-20 rounded-full">
 
-                <h1 className="text-[26px]">
                     <a href="/">
-                        <Image src="/digital-nutri.svg" width={180} height={120} alt="Digital Nutri" />
+                        <Image
+                            src="/digital-nutri.svg"
+                            width={140}
+                            height={0}
+                            alt="Digital Nutri" />
                     </a>
-                </h1>
 
-                <div className="flex">
+                    <div className="flex">
 
-                    <ul className={`flex gap-5 mr-5 transition-all ease-linear
-                ${showMenu ? 'opacity-1 visible' : 'opacity-0 invisible'}`}>
-                        {
-                            menuOptions &&
-                            menuOptions.map((item, i) => <li key={i} className="font-bold text-sm text-gray-900"><a href={item.permalink}>{item.label}</a></li>)
-                        }
-                    </ul>
+                        <ul className={`
+                            flex gap-5 
+                            mr-5 
+                            transition-all 
+                            ease-linear
+                            ${showMenu ?
+                                'opacity-1 visible' :
+                                'opacity-0 invisible'}`}>
+                            {
+                                menuOptions &&
+                                menuOptions.map((item, i) =>
+                                    <li key={i} className="font-bold text-sm text-gray-900">
+                                        <a href={item.permalink}>{item.label}</a></li>)
+                            }
+                        </ul>
 
-                    <button
-                        onClick={e => setShowMenu(!showMenu)}
-                        className="w-[25px] h-4 flex flex-col items-end gap-1">
-                        {
-                            Array(3).fill(0).map((item, i) => {
+                        <button
+                            onClick={e => setShowMenu(!showMenu)}
+                            className="w-[25px] flex flex-col items-end gap-1">
+                            {
+                                Array(3).fill(0).map((item, i) => {
 
-                                return (
-                                    <span
-                                        key={i}
-                                        className={`${showMenu ? 'bg-stone-300' : 'bg-green-500 '}  
-                                        transition-all ease-linear h-[4px] duration-500  rounded-full w-full
-                                        `}
-                                        style={{ ...(showMenu ? parseStyle(i) : {}) }}
-                                    />
-                                )
-                            })
-                        }
-                    </button>
+                                    return (
+                                        <span
+                                            key={i}
+                                            className={`${showMenu ? 'bg-stone-300' : 'bg-green-500 '}  
+                                            transition-all ease-linear h-[4px] duration-500  rounded-full w-full
+                                            `}
+                                            style={{ ...(showMenu ? parseStyle(i) : {}) }}
+                                        />
+                                    );
+                                })
+                            }
+                        </button>
+
+                    </div>
 
                 </div>
-
             </div>
-        </div>
+        </>
     )
 }

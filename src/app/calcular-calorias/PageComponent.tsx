@@ -10,6 +10,7 @@ import FormUserData from "@/components/calcular-calorias/Form/FormUserData/FormU
 import FormUserEating from "@/components/calcular-calorias/Form/FormUserEating/FormUserEating";
 import { navigationStore } from "@/store/navigation/navigation-store";
 import { useStore } from "zustand";
+import PageContainer from "@/components/layout/PageContainer";
 
 export default function PageComponent() {
 
@@ -23,11 +24,7 @@ export default function PageComponent() {
     ];
 
     return (
-        <div
-            style={{ overflow: "hidden" }}
-            className="">
-
-            <PageHeader />
+        <PageContainer>
 
             <div
                 className="
@@ -35,6 +32,7 @@ export default function PageComponent() {
                 h-screen 
                 flex w-10/12 
                 mx-auto 
+                mt-[80px]
                 justify-between">
 
                 <div className="flex-1 w-6/12">
@@ -87,6 +85,6 @@ export default function PageComponent() {
 
             </div>
 
-        </div>
+        </PageContainer>
     );
 }

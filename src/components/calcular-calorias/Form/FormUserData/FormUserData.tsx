@@ -24,6 +24,7 @@ export default function FormUserData() {
                     <InputField
                         value={name}
                         label="Seu nome"
+                        className="w-[50%]"
                         leftIcon={<CopyIcon />}
                         placeholder="Escreva seu nome..."
                         onChange={e => user.fnOnChange("name", e.target.value)}
@@ -32,6 +33,7 @@ export default function FormUserData() {
                     <InputField
                         value={age}
                         label="Sua idade"
+                        className="w-[50%]"
                         leftIcon={<CopyIcon />}
                         placeholder="Escreva seu nome..."
                         onChange={e => user.fnOnChange("age", e.target.value)}

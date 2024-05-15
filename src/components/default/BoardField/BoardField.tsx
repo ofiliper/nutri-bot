@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import "./board-field-style.css"
 
 export default function BoardField() {
 
@@ -23,80 +24,6 @@ export default function BoardField() {
 
     return (
         <>
-            <style>
-                {`
-                @keyframes appear_a {
-                    0% {
-                        bottom: -500px;
-                        opacity: 0;
-                    }
-                    100% {
-                        bottom: -40px;
-                        opacity: 1;
-                    }
-                }
-                @keyframes appear_b {
-                    0% {
-                        bottom: -500px;
-                        opacity: 0;
-                    }
-                    100% {
-                        bottom: -110px;
-                        opacity: 1;
-                    }
-                }
-                @keyframes appear_c {
-                    0% {
-                        bottom: -500px;
-                        opacity: 0;
-                    }
-                    100% {
-                        bottom: -110px;
-                        opacity: 1;
-                    }
-                }
-                @keyframes click {
-                    0% {
-                        height: 140px
-                    }
-                    50% {
-                        height: 90px
-                    }
-                    100% {
-                        height: 140px
-                    }
-                 
-                }
-                @keyframes slide {
-                    0% {
-                        top: 15px
-                    }
-                    50% {
-                        top: 0
-                    }
-                    100% {
-                        top: 15px
-                    }
-                 
-                }
-                @keyframes compression {
-                    0% {
-                        top: 22.5px;
-                        height: 50px;
-                    }
-                    50% {
-                        top: 0px;
-                        height: 45px;
-                    }
-                    100% {
-                        top: 22.5px;
-                        height: 50px;
-                    }
-                 
-                }
-                `}
-            </style>
-
             <div
                 style={{
                     animation: "appear_a .8s",
@@ -141,9 +68,7 @@ export default function BoardField() {
                     rounded-t-3xl 
                     p-10 flex justify-center
                     border-4 border-orange-200
-          
-                        `
-
+                    `
                     }
                 >
                     <div
