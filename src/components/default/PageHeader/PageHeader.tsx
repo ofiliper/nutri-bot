@@ -31,6 +31,7 @@ export default function PageHeader() {
             px-[40px] sm:px-auto 
             text-center 
             text-[10px] sm:text-[12px]
+            text-white
             bg-gradient-to-r from-red-500 to-red-900
             ">
                 Este serviço não substitui a necessidade de um atendimento com um profissional em nutrição
