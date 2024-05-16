@@ -6,22 +6,33 @@ import InputField from "@/components/default/InputField/InputField";
 import SelectField from "@/components/default/SelectField/SelectField";
 import { userStore } from "@/store/user/user-store";
 import formatDecimal from "@/utils/functions/formatDecimal";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useStore } from "zustand";
 import "@/assets/css/globals.css"
 import TrashIcon from "@/assets/icons/TrashIcon";
+import ArrowRightIcon from "@/assets/icons/ArrowRightIcon";
+import { navigationStore } from "@/store/navigation/navigation-store";
 
 
 export default function FormUserEating() {
 
     const user = useStore(userStore);
+    const navigation = useStore(navigationStore);
+
+    const { stepper } = navigation.data;
     const { content } = user.data;
     const [food, setFood] = useState<string>("");
 
+    const scrollRef = useRef<HTMLDivElement | null>(null);
+
     const updateFoodList = () => {
         if (food.trim() === "") return;
-        addItem();
-        setFood("");
+        addItem().then(() => {
+            setFood("");
+            if (scrollRef.current) {
+                scrollRef.current.scrollTop = scrollRef.current.scrollHeight + 200;
+            }
+        });
     };
 
     const updateListItem = (value: string, index: number) => {
@@ -36,7 +47,7 @@ export default function FormUserEating() {
         user.fnOnChange("content", newData);
     };
 
-    const addItem = () => {
+    const addItem = async () => {
         const newData = [...content];
         newData.push({ desc: food });
         user.fnOnChange("content", newData);
@@ -48,7 +59,13 @@ export default function FormUserEating() {
                 Escreva seu consumo de hoje
             </h1>
             <div>
-                <div className="mb-[20px] h-[280px] sm:h-[180px] overflow-y-scroll custom-scrollbar pr-4">
+                <div
+                    ref={scrollRef}
+                    className="
+                    mb-[20px] 
+                    h-[280px] sm:h-[180px] 
+                    overflow-y-scroll 
+                    custom-scrollbar pr-4">
                     {
                         content &&
                         content.map((item, i) => {
@@ -60,8 +77,8 @@ export default function FormUserEating() {
                                         rightIcon={<>
                                             <ButtonField
                                                 onClick={() => removeListItem(i)}
-                                                rightIcon={<TrashIcon color="#fff" />}
-                                                className="w-[30px] bg-red-300 text-white flex-1"
+                                                rightIcon={<TrashIcon />}
+                                                className="w-[30px] text-gray-400 flex-1 shadow-none sm:shadow-none"
                                             />
                                         </>} />
                                 </div>
@@ -91,6 +108,36 @@ export default function FormUserEating() {
 
                 </div>
             </div>
+
+            <div className="flex justify-end gap-5">
+
+
+                <div className="w-[50%]">
+                    <ButtonField
+                        className="bg-emerald-300"
+                        label={"Retornar..."}
+                        onClick={() => {
+                            navigation.fnOnChange("stepper", stepper - 1);
+                        }}
+                        leftIcon={<CopyIcon />}
+                    />
+                </div>
+
+
+
+                <div className="w-[50%]">
+                    <ButtonField
+                        className="bg-emerald-300"
+                        label={"Prosseguir..."}
+                        rightIcon={<ArrowRightIcon color="#fff" />}
+                        onClick={() => {
+                            navigation.fnOnChange("stepper", stepper + 1);
+                        }}
+                    />
+                </div>
+
+            </div>
+
         </div >
     )
 }

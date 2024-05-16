@@ -4,11 +4,18 @@ import InputField from "@/components/default/InputField/InputField";
 import SelectField from "@/components/default/SelectField/SelectField";
 import { userStore } from "@/store/user/user-store";
 import { useStore } from "zustand";
+import ButtonField from "@/components/default/ButtonField/ButtonField";
+import ArrowRightIcon from "@/assets/icons/ArrowRightIcon";
+import { navigationStore } from "@/store/navigation/navigation-store";
 
 export default function FormUserData() {
 
     const user = useStore(userStore);
+    const navigation = useStore(navigationStore);
+    
     const { name, age, weight, height, objective, healthCondition } = user.data;
+    const { stepper } = navigation.data;
+
 
     return (
         <div>
@@ -88,6 +95,22 @@ export default function FormUserData() {
                 </div>
 
             </div>
+
+            <div className="flex justify-end gap-5">
+
+                <div className="w-[50%]">
+                    <ButtonField
+                        className="bg-emerald-300"
+                        label={"Prosseguir..."}
+                        rightIcon={<ArrowRightIcon color="#fff" />}
+                        onClick={() => {
+                            navigation.fnOnChange("stepper", stepper + 1);
+                        }}
+                    />
+                </div>
+
+            </div>
+
         </div>
     );
 

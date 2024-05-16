@@ -11,17 +11,23 @@ import FormUserEating from "@/components/calcular-calorias/Form/FormUserEating/F
 import { navigationStore } from "@/store/navigation/navigation-store";
 import { useStore } from "zustand";
 import PageContainer from "@/components/layout/PageContainer";
+import FormUserConclusion from "@/components/calcular-calorias/FormUserConclusion/FormUserConclusion";
+import { answerStore } from "@/store/answer/answer-store";
+import { useEffect } from "react";
 
 export default function PageComponent() {
 
     const navigation = useStore(navigationStore);
+    const answer = useStore(answerStore);
     const { stepper } = navigation.data;
+    const { data: responseAnswer } = answer.data;
 
     const options = [
         { id: 0, label: 'Sobre você' },
         { id: 1, label: 'Seu consumo', },
-        { id: 2, label: "Resultado" }
+        { id: 2, label: "Finalizar" }
     ];
+
 
     return (
         <PageContainer>
@@ -44,52 +50,23 @@ export default function PageComponent() {
                     mx-auto 
                     justify-between">
 
-
                     <div className="flex-1 w-6/12">
 
                         <div className="w-full sm:w-9/12 flex flex-col pt-10 justify-start h-screen">
 
-
                             {stepper === 0 && (<FormUserData />)}
                             {stepper === 1 && (<FormUserEating />)}
-                            {stepper === 2 && (<FormUserData />)}
-
-                            <div className="flex justify-end gap-5">
-
-                                {
-                                    stepper > 0 && (
-                                        <div className="w-[50%]">
-                                            <ButtonField
-                                                className="bg-emerald-300"
-                                                label={"Retornar..."}
-                                                onClick={() => {
-                                                    navigation.fnOnChange("stepper", stepper - 1);
-                                                }}
-                                                leftIcon={<CopyIcon />}
-                                            />
-                                        </div>
-                                    )
-                                }
-
-                                <div className="w-[50%]">
-                                    <ButtonField
-                                        className="bg-emerald-300"
-                                        label={"Prosseguir..."}
-                                        rightIcon={<ArrowRightIcon color="#fff" />}
-                                        onClick={() => {
-                                            navigation.fnOnChange("stepper", stepper + 1);
-                                        }}
-                                    />
-                                </div>
-
-                            </div>
+                            {stepper === 2 && (<FormUserConclusion />)}
 
                         </div>
 
                     </div>
 
-                    <div className="hidden sm:block">
-                        <BoardField />
+                    <div className="hidden sm:block mt-[-50px]">
+
+                        <BoardField
+                            content={responseAnswer} />
+
                     </div>
 
                 </div>

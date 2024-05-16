@@ -4,7 +4,7 @@ import { AxiosResponse } from "axios";
 
 export default function UserData() {
 
-    const createAnswer = (data: UserDTO): Promise<any> => {
+    const createCalculate = (data: UserDTO): Promise<any> => {
         return new Promise<any>((resolve, reject) => {
 
             const service = new UserService();
@@ -23,7 +23,7 @@ export default function UserData() {
     };
 
     return {
-        createAnswer,
+        createCalculate,
     };
 
 }

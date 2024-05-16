@@ -1,5 +1,6 @@
 'use client'
 
+import AlertIcon from "@/assets/icons/AlertIcon";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -9,11 +10,11 @@ export default function PageHeader() {
 
     const menuOptions = [
         {
-            permalink: "#", label: "Sobre",
+            permalink: "/calcular-calorias", label: "Calcular calorias",
         },
         {
-            permalink: "/calcular-calorias", label: "Calcular calorias",
-        }
+            permalink: "#", label: "Contato",
+        },
     ];
 
     const parseStyle = (index: number) => {
@@ -27,6 +28,7 @@ export default function PageHeader() {
     return (
         <>
             <div className="
+            flex items-center gap-2 justify-center
             py-[7px]
             px-[40px] sm:px-auto 
             text-center 
@@ -34,7 +36,8 @@ export default function PageHeader() {
             text-white
             bg-gradient-to-r from-red-500 to-red-900
             ">
-                Este serviço não substitui a necessidade de um atendimento com um profissional em nutrição
+                <AlertIcon color="yellow" />
+                <p>Este serviço não substitui a necessidade de um atendimento com um profissional em nutrição</p>
             </div>
             <div className="z-50 w-full absolute">
 

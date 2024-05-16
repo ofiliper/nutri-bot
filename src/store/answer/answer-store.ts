@@ -1,20 +1,21 @@
 // import { FolderDTO, FormDTO, FormListDTO, FormsListDTO, ShowFolderDTO } from '@/services/dto';
+import { AnswerDTO } from '@/services/dto';
 import { create } from 'zustand'
 
-interface IProps {
-    stepper: number;
-}
-
-const stateDefault: IProps = {
-    stepper: 0
+const stateDefault: AnswerDTO = {
+    response: "",
+    message: "",
+    data: `Conte-me mais sobre você e seus objetivos, você quer emagrecer ou desenvolver massa magra?
+    Você possui alguma condição de saúde que eu devo considerar?
+    `
 }
 
 type Store = {
-    data: IProps
-    errors: Partial<{ [field in keyof IProps]: string }>
-    fnOnChange: (field: keyof IProps, value: any) => void
+    data: AnswerDTO
+    errors: Partial<{ [field in keyof AnswerDTO]: string }>
+    fnOnChange: (field: keyof AnswerDTO, value: any) => void
     fnReset: () => void
-    fnParcialReset: (field: keyof IProps) => void
+    fnParcialReset: (field: keyof AnswerDTO) => void
 }
 
 export const answerStore = create<Store>((set, get) => ({

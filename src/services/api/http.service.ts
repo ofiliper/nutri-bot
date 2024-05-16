@@ -1,26 +1,14 @@
 import axios from "axios";
 
 export class HttpService {
-    
+
     private axios;
 
     constructor() {
 
         this.axios = axios.create({
-            baseURL: `${process.env.API_URL}`,
+            baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
         });
-
-        // const token = localStorage.getItem("auth");
-
-        // if (token) {
-        //     if (token) {
-        //         this.axios.interceptors.request.use((request) => {
-        //             request.headers.Authorization = `Bearer ${token}`;
-
-        //             return request;
-        //         });
-        //     }
-        // }
 
     }
 

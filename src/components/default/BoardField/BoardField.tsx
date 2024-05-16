@@ -3,24 +3,41 @@
 import { useEffect, useState } from "react";
 import "./board-field-style.css"
 
-export default function BoardField() {
+interface IBoardField {
+    content?: string;
+}
 
-    const textDefault = `Conte-me mais sobre você e seus objetivos, você quer emagrecer ou desenvolver massa magra?
-    Você possui alguma condição de saúde que eu devo considerar?
-    `.split(" ");
+export default function BoardField({ content = "" }: IBoardField) {
+
     const [index, setIndex] = useState(0);
     const [text, setText] = useState<string>("");
+    const [conclusion, setConclusion] = useState<boolean>(false);
+    const [textDefault, setTextDefault] = useState(() => content.split(" "));
 
     useEffect(() => {
-        if (index < textDefault.length) {
+        restart();
+    }, [content]);
+
+
+
+    useEffect(() => {
+        if (index < textDefault.length && !conclusion) {
             const timer = setTimeout(() => {
                 setText(prevText => prevText + " " + textDefault[index]);
                 setIndex(prevIndex => prevIndex + 1);
             }, 100);
             return () => clearTimeout(timer);
+        } else {
+            setConclusion(true);
         }
     }, [index]);
 
+    const restart = () => {
+        setTextDefault(content.split(" "));
+        setIndex(0);
+        setText("");
+        setConclusion(false);
+    }
 
     return (
         <div
@@ -28,7 +45,7 @@ export default function BoardField() {
                 animation: "appear_a .8s",
                 animationFillMode: "forwards",
             }}
-            className="flex h-screen relative items-end relative rotate-[-2deg] left-[-40px]">
+            className="flex h-screen relative items-end relative rotate-[-1deg] left-[-40px]">
 
             <div className="w-full absolute top-0 w-full h-[200px] flex items-start justify-center ">
                 <div
@@ -85,12 +102,19 @@ export default function BoardField() {
                     }}
                     className="bg-white absolute 
                         w-11/12 mx-auto text-sm text-gray-800
-                        h-screen px-10 py-20 shadow-xl">
+                        h-screen px-10 py-20 pr-0 shadow-xl">
 
-                    <p>
+                    <p className="h-[50%] pr-10 overflow-y-scroll custom-scrollbar">
                         {
-                            text
+                            text &&
+                            text.split('\n').map((value, index) => (
+                                <>
+                                    {value}
+                                    {value === "" && <> <br /><br /></>}
+                                </>
+                            ))
                         }
+
                     </p>
 
                 </div>
