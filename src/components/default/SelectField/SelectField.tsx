@@ -61,16 +61,18 @@ export default function SelectField({
             {label && (
                 <label className={selectFieldStyle.label()}>
                     {label}
-                </label>)}
+                </label>
+            )}
 
             <button
                 className={selectFieldStyle.button()}
-                onClick={e => setActive(!active)}>{
-                    selected ? selected :
-                        placeholderText}
+                onClick={e => setActive(!active)}>
+
+                {selected ?? placeholderText}
+
             </button>
-            
-            <div className="relative ">
+
+            <div className="relative">
                 {
                     options && (
                         <div className={selectFieldStyle.options(active, options.length)}>

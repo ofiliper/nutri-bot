@@ -28,7 +28,8 @@ export default function InputField({
     className,
     limit,
     onKeyDown,
-    onHover }: IInputField) {
+    onHover
+}: IInputField) {
 
     const [isFocus, setIsFocus] = useState(false);
     const inputRef = useRef<HTMLInputElement | null>(null);

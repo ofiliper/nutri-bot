@@ -32,8 +32,6 @@ export default function ButtonField({
     isLoading = false,
     onHover }: IButtonField) {
 
-    const [isFocus, setIsFocus] = useState(true);
-
     return (
         <>
 
@@ -41,8 +39,8 @@ export default function ButtonField({
                 disabled={isDisabled}
                 onClick={onClick}
                 className={`
-                       ${buttonStyle.button(isDisabled)}
-                        ${className}
+                    ${buttonStyle.button(isDisabled)}
+                    ${className}
                 `}>
 
                 {

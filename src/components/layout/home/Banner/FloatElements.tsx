@@ -1,6 +1,7 @@
 import { animate } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { bannerElements } from "./banner-style";
 
 interface ICoordinates {
     coordinates: {
@@ -57,7 +58,7 @@ export default function FloatElements({ coordinates }: ICoordinates) {
 
             <img src="/orange.png"
                 ref={orangeRef}
-                className="absolute left-0 bottom-0 blur-[1px] hover:blur-none transition-all ease-linear ease-linear transition-all"
+                className={bannerElements.orange()}
                 style={{
                     animation: "appear 1s",
                     animationFillMode: "forwards",
@@ -66,7 +67,7 @@ export default function FloatElements({ coordinates }: ICoordinates) {
 
             <Image src="/choco.png"
                 ref={strawRef}
-                className="absolute right-[200px] bottom-40 blur-sm hover:blur-[1.5px]  transition-all ease-linear transition-all"
+                className={bannerElements.choco()}
                 style={{
                     animation: "appear 1s",
                     animationFillMode: "forwards",
@@ -75,7 +76,7 @@ export default function FloatElements({ coordinates }: ICoordinates) {
 
             <Image src="/strawberry.png"
                 ref={chocoRef}
-                className="absolute top-20 right-60 blur hover:blur-sm opacity-60 transition-all ease-linear transition-all"
+                className={bannerElements.straw()}
                 style={{
                     animation: "appear 1s",
                     animationFillMode: "forwards",
