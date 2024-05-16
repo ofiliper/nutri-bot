@@ -6,14 +6,14 @@ import PageHeader from "@/components/default/PageHeader/PageHeader";
 import BoardField from "@/components/default/BoardField/BoardField";
 import ButtonField from "@/components/default/ButtonField/ButtonField";
 import StepperField from "@/components/default/StepperField/StepperField";
-import FormUserData from "@/components/calcular-calorias/Form/FormUserData/FormUserData";
-import FormUserEating from "@/components/calcular-calorias/Form/FormUserEating/FormUserEating";
 import { navigationStore } from "@/store/navigation/navigation-store";
 import { useStore } from "zustand";
 import PageContainer from "@/components/layout/PageContainer";
-import FormUserConclusion from "@/components/calcular-calorias/FormUserConclusion/FormUserConclusion";
 import { answerStore } from "@/store/answer/answer-store";
 import { useEffect } from "react";
+import FormUserData from "@/components/layout/calcular-calorias/Form/FormUserData/FormUserData";
+import FormUserEating from "@/components/layout/calcular-calorias/Form/FormUserEating/FormUserEating";
+import FormUserConclusion from "@/components/layout/calcular-calorias/FormUserConclusion/FormUserConclusion";
 
 export default function PageComponent() {
 
