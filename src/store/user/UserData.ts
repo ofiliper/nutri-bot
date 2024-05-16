@@ -16,7 +16,7 @@ export default function UserData() {
                     resolve(data);
                 })
                 .catch((err) => {
-                    console.error("Erro ao buscar perguntas e formulário:", err);
+                    console.error("Erro ao obter a resposta:", err);
                     reject(err);
                 });
         });

@@ -23,7 +23,6 @@ export default function PageComponent() {
         { id: 2, label: "Finalizar" }
     ];
 
-
     return (
         <PageContainer>
 
@@ -39,8 +38,7 @@ export default function PageComponent() {
 
                 </div>
 
-                <div
-                    className="z-20 flex w-10/12 mx-auto justify-between">
+                <div className="z-20 flex w-10/12 mx-auto justify-between">
 
                     <div className="flex-1 w-6/12">
 

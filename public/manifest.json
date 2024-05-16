@@ -1,7 +1,7 @@
 {
-    "name": "DigitalNutri",
-    "short_name": "DigitalNutri",
-    "description": "Nutricionista virtual",
+    "name": "Digital Nutri",
+    "short_name": "Digital Nutri",
+    "description": "Nutricionista virtual com inteligencia artificial",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
