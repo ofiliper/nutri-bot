@@ -48,7 +48,7 @@ export default function FormUserEating() {
                 Escreva seu consumo de hoje
             </h1>
             <div>
-                <div className="mb-[20px] h-[180px] overflow-y-scroll custom-scrollbar pr-4">
+                <div className="mb-[20px] h-[280px] sm:h-[180px] overflow-y-scroll custom-scrollbar pr-4">
                     {
                         content &&
                         content.map((item, i) => {
