@@ -18,8 +18,6 @@ export default function BoardField({ content = "" }: IBoardField) {
         restart();
     }, [content]);
 
-
-
     useEffect(() => {
         if (index < textDefault.length && !conclusion) {
             const timer = setTimeout(() => {

@@ -1,4 +1,4 @@
-import PageHeader from "../default/PageHeader/PageHeader";
+import PageHeader from "../PageHeader/PageHeader";
 
 interface IPageContainer {
     children: React.ReactElement;

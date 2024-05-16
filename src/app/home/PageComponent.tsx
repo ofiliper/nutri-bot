@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import "@/assets/css/globals.css"
-import PageContainer from "@/components/layout/PageContainer";
+ 
 import Banner from "@/components/layout/home/Banner/Banner";
+import PageContainer from "@/components/default/PageContainer/PageContainer";
 
 export const metadata: Metadata = {
     title: "Calcular calorias | Digital Nutri",
@@ -13,6 +14,5 @@ export default function PageComponent() {
         <PageContainer>
             <Banner />
         </PageContainer>
-
     );
 }

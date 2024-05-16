@@ -1,17 +1,15 @@
 'use client'
 
 import CopyIcon from "@/assets/icons/CopyIcon";
-import ButtonField from "@/components/default/ButtonField/ButtonField";
-import InputField from "@/components/default/InputField/InputField";
-import SelectField from "@/components/default/SelectField/SelectField";
-import { userStore } from "@/store/user/user-store";
-import formatDecimal from "@/utils/functions/formatDecimal";
-import { useEffect, useRef, useState } from "react";
-import { useStore } from "zustand";
-import "@/assets/css/globals.css"
 import TrashIcon from "@/assets/icons/TrashIcon";
 import ArrowRightIcon from "@/assets/icons/ArrowRightIcon";
+import ButtonField from "@/components/default/ButtonField/ButtonField";
+import InputField from "@/components/default/InputField/InputField";
+import { useRef, useState } from "react";
 import { navigationStore } from "@/store/navigation/navigation-store";
+import { userStore } from "@/store/user/user-store";
+import { useStore } from "zustand";
+import "@/assets/css/globals.css"
 
 
 export default function FormUserEating() {
@@ -31,7 +29,7 @@ export default function FormUserEating() {
             setFood("");
             if (scrollRef.current) {
                 scrollRef.current.scrollTop = scrollRef.current.scrollHeight + 200;
-            }
+            };
         });
     };
 
@@ -111,7 +109,6 @@ export default function FormUserEating() {
 
             <div className="flex justify-end gap-5">
 
-
                 <div className="w-[50%]">
                     <ButtonField
                         className="bg-emerald-300"
@@ -122,8 +119,6 @@ export default function FormUserEating() {
                         leftIcon={<CopyIcon />}
                     />
                 </div>
-
-
 
                 <div className="w-[50%]">
                     <ButtonField
