@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "@/assets/css/globals.css";
+import FullScreenToggle from "@/components/default/FullScreenToggle/FullScreenToggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,10 @@ export default function RootLayout({
         <link rel="icon" href="favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="apple-touch-icon" href="favicon.ico" />
       </head>
       <body className={`custom-scrollbar ${inter.className}`}>
+        <FullScreenToggle />
         {children}
       </body>
     </html>

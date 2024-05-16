@@ -45,7 +45,7 @@ export default function BoardField({ content = "" }: IBoardField) {
                 animation: "appear_a .8s",
                 animationFillMode: "forwards",
             }}
-            className="flex h-screen relative items-end relative rotate-[-1deg] left-[-40px]">
+            className="flex h-screen relative items-end relative left-[-40px]">
 
             <div className="w-full absolute top-0 w-full h-[200px] flex items-start justify-center ">
                 <div

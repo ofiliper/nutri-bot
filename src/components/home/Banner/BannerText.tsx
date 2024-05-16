@@ -36,10 +36,9 @@ export default function BannerText() {
             w-[90%] sm:w-[420px]
             mx-auto 
             mb-[30px]
-            text-sm 
+            text-sm sm:text-lg
             text-gray-900">
-                Clique abaixo e faça o cálculo estimado de calorias que você consumiu hoje. <br />
-                Atenção: Este serviço não substitui a necessidade de um acompanhamento nutricional.</p>
+                Clique abaixo e faça o cálculo estimado de calorias que você consumiu hoje.</p>
 
             <div className="
             flex
