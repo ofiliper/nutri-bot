@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react";
+import stepperStyle from "./stepper-field";
 
 interface IOptions {
     id: number;
@@ -22,31 +23,18 @@ export default function StepperField({
 
     return (
         <div>
-
             <div className="flex mb-10">
                 {
                     options &&
                     options.map((item, i) => {
                         return (
-                            <div
-                                key={i}
-                                className="flex w-[30%] items-center gap-3">
+                            <div key={i} className="flex w-[30%] items-center gap-3">
                                 <span
-                                    className={`
-                                    flex items-center justify-center
-                                    rounded-full w-[30px] h-[30px]
-                                    inline transition-all ease-linear
-                                    ${i <= active ? `${colorActive} text-white` : `${colorInactive} text-gray-800`}
-                        `}>
+                                    className={stepperStyle.number(i <= active, { colorActive, colorInactive })}
+                                >
                                     {item.id + 1}
                                 </span>
-                                <span
-                                    className={`
-                                    grow inline 
-                                    text-[9.5px] sm:text-sm
-                                    font-bold
-                                    ${i <= active ? 'text-emerald-800' : 'text-gray-300'}
-                                    `}>
+                                <span className={stepperStyle.label(i <= active)}>
                                     {item.label}
                                 </span>
                             </div>

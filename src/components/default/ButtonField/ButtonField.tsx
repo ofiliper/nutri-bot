@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react";
+import buttonStyle from "./button-field";
 
 interface IButtonField {
     label?: string;
@@ -40,14 +41,8 @@ export default function ButtonField({
                 disabled={isDisabled}
                 onClick={onClick}
                 className={`
-                flex p-3 
-                rounded-3xl 
-                gap-3 
-                px-5
-                shadow-sm
-                w-full
-                ${isDisabled ? 'opacity-40' : 'opacity-100'}
-                ${className}
+                       ${buttonStyle.button(isDisabled)}
+                        ${className}
                 `}>
 
                 {

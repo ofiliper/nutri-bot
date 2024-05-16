@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from "react";
+import inputStyle from "./input-field-style";
 
 interface IInputField {
     label?: string;
@@ -35,35 +36,19 @@ export default function InputField({
     return (
         <>
             <div
-                className={`${className}`}
                 onClick={e => {
                     if (inputRef && inputRef.current) { inputRef.current.focus() };
                 }}
+                className={`${className}`}
                 onMouseOver={e => setIsFocus(true)}
                 onMouseOut={e => setIsFocus(false)}>
 
                 {label && (
-                    <label className={` 
-                    transition-all text-sm font-medium mb-[7px] block text-gray-900
-                    ${isFocus ? 'text-emerald-500' : ''}`}>
+                    <label className={inputStyle.label(isFocus)}>
                         {label}
                     </label>)}
 
-                <div
-                    className={`
-                    flex bg-
-                    white-500
-                    bg-white
-                    p-3 
-                    rounded-lg
-                    gap-3 
-                    px-5
-                    shadow-sm
-                    w-full
-                    border-[1px] transition-all ease-linear
-                    ${isFocus ? 'border-emerald-500' : 'border-gray-200'}
-                `}
-                >
+                <div className={inputStyle.container(isFocus)}>
 
                     {leftIcon && (leftIcon)}
 
@@ -78,7 +63,7 @@ export default function InputField({
                                 onKeyDown(e);
                             }
                         }}
-                        className="w-full bg-transparent focus-visible:outline-none text-gray-900"
+                        className={inputStyle.input()}
                     />
 
                     {rightIcon && (rightIcon)}
@@ -87,7 +72,7 @@ export default function InputField({
 
                 {
                     limit &&
-                    (<span className="text-[10px]">
+                    (<span className={inputStyle.span()}>
                         Digite até {limit} caracteres
                     </span>)
                 }

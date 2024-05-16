@@ -3,6 +3,7 @@
 import AlertIcon from "@/assets/icons/AlertIcon";
 import Image from "next/image";
 import { useState } from "react";
+import pageHeaderStyle from "./page-header-style";
 
 export default function PageHeader() {
 
@@ -27,90 +28,49 @@ export default function PageHeader() {
 
     return (
         <>
-            <div className="
-            flex items-center gap-2 justify-center
-            py-[7px]
-            px-[40px] sm:px-auto 
-            text-center 
-            text-[10px] sm:text-[12px]
-            text-white
-            bg-gradient-to-r from-red-500 to-red-900
-            ">
+            <div className={pageHeaderStyle.main()}>
+
                 <AlertIcon color="yellow" />
                 <p>Este serviço não substitui a necessidade de um atendimento com um profissional em nutrição</p>
+
             </div>
+
             <div className="z-50 w-full absolute">
 
-                <div className={`
-                     relative 
-                     z-50 
-                     mx-auto 
-                     flex 
-                     justify-between 
-                     items-center 
-                     py-5
-                     px-5 sm:px-20
-                     w-11/12 sm:w-9/12 
-                     rounded-full
-                `}>
+                <div className={pageHeaderStyle.container()}>
 
                     <div>
                         <a href="/">
                             <Image
-                                src="/digital-nutri.svg"
-                                width={140}
-                                height={0}
-                                alt="Digital Nutri"
-                                className="w-[120px] sm:w-[150px]"
+                                src="/digital-nutri.svg" width={140} height={0}
+                                alt="Digital Nutri" className="w-[120px] sm:w-[150px]"
                             />
                         </a>
                     </div>
 
                     <div className="flex">
 
-                        <ul className={`
-                            mr-5 
-                            flex 
-                            flex-col sm:flex-row
-                            items-center
-                            justify-center sm:justify-start
-                            gap-10 sm:gap-5 
-                            ease-linear
-                            transition-all 
-                            bg-red-900 sm:bg-transparent
-                            fixed sm:relative
-                            top-0
-                            left-0
-                            w-[100%] sm:w-auto
-                            h-screen sm:h-auto
-                            ${showMenu ?
-                                'opacity-1 visible' :
-                                'opacity-0 invisible'}`}>
+                        <ul className={pageHeaderStyle.menu(showMenu)}>
                             {
                                 menuOptions &&
                                 menuOptions.map((item, i) =>
                                     <li
                                         key={i}
-                                        className="font-bold 
-                                        text-[32px] sm:text-sm
-                                        text-white sm:text-gray-900
-                                    ">
+                                        className={pageHeaderStyle.menuItem()}>
                                         <a href={item.permalink} rel="follow">{item.label}</a></li>)
                             }
                         </ul>
 
                         <button
                             onClick={e => setShowMenu(!showMenu)}
-                            className="w-[25px] flex flex-col items-end gap-1">
+                            className={pageHeaderStyle.menuButton()}>
                             {
                                 Array(3).fill(0).map((item, i) => {
 
                                     return (
                                         <span
                                             key={i}
-                                            className={`${showMenu ? 'bg-stone-300' : 'bg-green-500 '}  
-                                            transition-all ease-linear h-[4px] duration-500  rounded-full w-full
-                                            `}
+                                            className={pageHeaderStyle.menuButtonItem(showMenu)}
                                             style={{ ...(showMenu ? parseStyle(i) : {}) }}
                                         />
                                     );

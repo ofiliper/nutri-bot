@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import ButtonField from "../ButtonField/ButtonField";
 import CopyIcon from "@/assets/icons/CopyIcon";
+import selectFieldStyle from "./select-field";
+
+
 
 interface IOptions {
     id: number;
@@ -53,59 +56,34 @@ export default function SelectField({
 
 
     return (
-        <div
-            ref={selectRef}
-            className="w-full"
-        >
+        <div ref={selectRef} className="w-full">
 
             {label && (
-                <label className={` transition-all text-sm font-medium mb-[7px] block text-gray-900`}>
+                <label className={selectFieldStyle.label()}>
                     {label}
                 </label>)}
 
             <button
-                className="
-                flex p-3 
-                rounded-xl 
-                gap-3 
-                px-5
-                w-full
-                shadow-sm
-                border-[1px]
-                border-gray-200
-                text-gray-900
-            "
+                className={selectFieldStyle.button()}
                 onClick={e => setActive(!active)}>{
                     selected ? selected :
                         placeholderText}
             </button>
+            
             <div className="relative ">
                 {
                     options && (
-                        <div className={`
-                        absolute transition-all 
-                        bg-gray-50 w-full
-                        rounded-xl ease-linear
-                        ${active ?
-                                'top-[-5px] opacity-100 visible' :
-                                'top-[-10px] opacity-0 invisible'}
-                        ${options.length > 4 ?
-                                'overflow-y-scroll overflow-x-hidden h-[160px]' :
-                                ''}
-                        `
-
-                        }>
+                        <div className={selectFieldStyle.options(active, options.length)}>
                             {
-                                options && options.map((item: { id: number, label: string }, i) => {
+                                options &&
+                                options.map((item: IOptions, i: number) => {
                                     return (
                                         <ButtonField
                                             key={i}
-                                            className="shadow-none hover:bg-gray-100 text-gray-900"
                                             label={item.label}
                                             leftIcon={<CopyIcon />}
-                                            onClick={() => {
-                                                handleOption(item, i);
-                                            }}
+                                            onClick={() => handleOption(item, i)}
+                                            className={selectFieldStyle.optionButton()}
                                         />
                                     )
                                 })
